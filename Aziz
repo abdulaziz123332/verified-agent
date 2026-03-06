@@ -1,0 +1,28 @@
+name: Verify Human Identity
+
+on:
+  workflow_dispatch:
+    inputs:
+      agent_name:
+        description: 'Aziz'
+        required: true
+        default: 'Aziz'
+
+      agent_description:
+        description: 'Aziz'
+        required: true
+        default: 'Aziz AI Agent'
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Run Verification
+        run: |
+          echo "Agent Name: ${{ github.event.inputs.agent_name }}"
+          echo "Description: ${{ github.event.inputs.agent_description }}"
+          echo "Verification started..."
